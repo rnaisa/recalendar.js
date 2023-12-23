@@ -12,6 +12,7 @@ import {
 	ITINERARY_ITEM,
 	ITINERARY_LINES,
 	ITINERARY_NEW_PAGE,
+	ITINERARY_TODO_LINES,
 } from 'configuration-form/itinerary';
 
 function SortableItineraryRow( props ) {
@@ -70,6 +71,29 @@ function SortableItineraryRow( props ) {
 		);
 	}
 
+	function renderTodoLines() {
+		return (
+			<FloatingLabel
+				className="flex-grow-1"
+				controlId={ id }
+				label={ t( 'configuration.itinerary.placeholder.todolines' ) }
+			>
+				<FormControl
+					placeholder={ t( 'configuration.itinerary.placeholder.todolines' ) }
+					type="number"
+					min={ 1 }
+					max={ 50 }
+					value={ value }
+					onChange={ onChange }
+					data-id={ id }
+					data-type={ ITINERARY_TODO_LINES }
+					data-field={ field }
+					required
+				/>
+			</FloatingLabel>
+		);
+	}
+
 	function renderRemoveButton() {
 		return (
 			<Button
@@ -92,8 +116,11 @@ function SortableItineraryRow( props ) {
 				return renderNewPage();
 
 			case ITINERARY_LINES:
-			default:
 				return renderLines();
+
+			case ITINERARY_TODO_LINES:
+			default:
+				return renderTodoLines();
 		}
 	}
 

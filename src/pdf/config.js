@@ -1,7 +1,7 @@
 import dayjs from 'dayjs';
 import { t } from 'i18next';
 
-import { ITINERARY_ITEM, ITINERARY_LINES } from 'configuration-form/itinerary';
+import { ITINERARY_ITEM, ITINERARY_LINES, ITINERARY_TODO_LINES } from 'configuration-form/itinerary';
 import {
 	HOLIDAY_DAY_TYPE,
 	EVENT_DAY_TYPE,
@@ -90,7 +90,7 @@ class PdfConfig {
 		this.dayItineraries = [ ...Array( 7 ).keys() ].map( () => {
 			const itinerary = {
 				dayOfWeek,
-				items: [ { type: ITINERARY_LINES, value: 50 } ],
+				items: [ { type: ITINERARY_TODO_LINES, value: 50 } ],
 				isEnabled: true,
 			};
 			dayOfWeek = ++dayOfWeek % 7;

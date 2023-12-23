@@ -19,25 +19,25 @@ class Itinerary extends React.PureComponent {
 			alignItems: 'center',
 			borderBottomWidth: 1,
 			borderBottomColor: 'grey',
-			padding: 10,
+			height: 23,
+			minHeight: 23,
 		},
 		tickbox: {
-			width: 20,
-			height: 20,
-			borderRadius: 10,
 			borderWidth: 1,
-			borderColor: 'grey',
-			marginRight: 10,
+			borderColor: 'darkgrey',
+			marginRight: 37,
+			padding: 6,
 		},
 		text: {
 			flex: 1,
-			fontSize: 16,
+			height: 30,
+			padding: 10,
 		},
 		verticalLine: {
-			width: 1,
+			width: 100,
 			height: '100%',
-			backgroundColor: 'grey',
-			marginLeft: 10,
+			borderRightWidth: 1,
+			borderColor: 'darkgrey',
 		},
 	} );
 
@@ -73,17 +73,17 @@ class Itinerary extends React.PureComponent {
 	}
 
 	renderTodoLines( count ) {
-		const lines = [];
+		const todoLines = [];
 		for ( let i = 0; i < count; i++ ) {
-			lines.push(
+			todoLines.push(
 				<View key={ i } style={ this.styles.todoLine }>
-					<View style={ this.styles.tickbox }></View>
-					<Text style={ this.styles.text }>Your todo text here</Text>
 					<View style={ this.styles.verticalLine }></View>
+					<Text style={ this.styles.text }></Text>
+					<View style={ this.styles.tickbox }></View>
 				</View>
 			);
 		}
-		return lines;
+		return todoLines;
 	}
 
 	render() {

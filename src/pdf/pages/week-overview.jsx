@@ -64,6 +64,27 @@ class WeekOverviewPage extends React.Component {
 				specialItem: {
 					fontSize: 10,
 				},
+				tickbox: {
+					height: 10,
+					width: 10,
+					borderWidth: 1,
+					borderColor: 'darkgrey',
+					marginRight: 20,
+					padding: 6,
+				},
+				dayTickbox: {
+					height: 10,
+					width: 10,
+					borderWidth: 1,
+					margin: 2,
+					borderColor: 'darkgrey',
+					alignSelf: 'flex-end',
+				},
+				dayOfWeekContainer: {
+					height: '100%',
+					flexDirection: 'column',
+					justifyContent: 'space-between',
+				},
 			},
 			{ content, page: pageStyle( this.props.config ) },
 		),
@@ -101,7 +122,7 @@ class WeekOverviewPage extends React.Component {
 				style={ this.styles.day }
 				src={ '#' + dayPageLink( day, config ) }
 			>
-				<View style={ { flexDirection: 'column' } }>
+				<View style={ this.styles.dayOfWeekContainer }>
 					<View style={ this.styles.dayDate }>
 						<Text style={ this.styles.dayOfWeek }>{day.format( 'dddd' )}</Text>
 						<Text style={ this.styles.shortDate }>{day.format( 'DD MMM' )}</Text>
@@ -117,6 +138,7 @@ class WeekOverviewPage extends React.Component {
 							» {value}
 						</Text>
 					) )}
+					<View style={ this.styles.dayTickbox }></View>
 				</View>
 			</Link>
 		);
