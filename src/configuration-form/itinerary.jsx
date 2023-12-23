@@ -24,6 +24,7 @@ import SortableItineraryRow from './sortable-itinerary-row';
 export const ITINERARY_ITEM = 'item';
 export const ITINERARY_LINES = 'lines';
 export const ITINERARY_NEW_PAGE = 'new_page';
+export const ITINERARY_TODO_LINES = 'todo_lines';
 
 function Itinerary( props ) {
 	const { t } = useTranslation( 'app' );
@@ -104,6 +105,14 @@ function Itinerary( props ) {
 						data-field={ field }
 					>
 						{t( 'configuration.itinerary.button.page' )}
+					</Button>
+					<Button
+						variant="outline-secondary"
+						onClick={ onAdd }
+						data-type={ ITINERARY_TODO_LINES }
+						data-field={ field }
+					>
+						{t( 'configuration.itinerary.button.todolines' )}
 					</Button>
 				</ButtonGroup>
 			</Stack>
